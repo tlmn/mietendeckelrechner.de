@@ -1,0 +1,86 @@
+{
+  "name": "mietendeckelrechner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlmn/MDR.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tlmn/MDR/issues"
+  },
+  "homepage": "https://github.com/tlmn/MDR#readme",
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "axios": "^0.19.2",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^25.1.0",
+    "babel-preset-gatsby": "^0.2.29",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "gatsby": "^2.19.18",
+    "gatsby-link": "^2.2.29",
+    "gatsby-plugin-i18n": "^1.0.1",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-plugin-sass": "^2.1.28",
+    "gatsby-source-filesystem": "^2.1.48",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.7",
+    "node-sass": "^4.13.1",
+    "normalize.css": "^8.0.1",
+    "prettier": "^1.19.1",
+    "ptz-i18n": "^1.0.0",
+    "react": "^16.12.0",
+    "react-bootstrap-typeahead": "^3.4.7",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-hook-form": "^4.9.6",
+    "react-intl": "^3.12.0",
+    "react-number-format": "^4.3.1",
+    "react-tooltip": "^4.0.3",
+    "sass-mq": "^5.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run lint"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "testMatch": [
+      "**/*.test.+(js|jsx)"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}"
+    ]
+  }
+}

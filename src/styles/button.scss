@@ -1,0 +1,35 @@
+.button {
+  background: $c-yellow;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem 0;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: lighten($c-yellow, 10%);
+  }
+
+  & + & {
+    margin-left: 0rem;
+  }
+
+  &--is-secondary {
+    background-color: transparent;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $c-yellow;
+    }
+  }
+}

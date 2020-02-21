@@ -1,0 +1,10 @@
+.steps {
+  &__footer {
+    display: flex;
+
+    .button--is-secondary {
+      justify-self: flex-end;
+      margin-left: auto;
+    }
+  }
+}

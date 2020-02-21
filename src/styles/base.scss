@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.2rem;
+}
+
+fieldset {
+  background-color: #fafafa;
+  border: 0.1rem solid #ddd;
+  margin-bottom: 1.5rem;
+  padding: 2rem 1.25rem;
+
+  > legend {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  ~ .button {
+    margin-left: 1.5rem;
+  }
+}
+
+.wrapper {
+  padding: 0.3rem;
+  margin: 0 auto;
+  @include mq($from: tablet) {
+    max-width: 50rem;
+  }
+}
+
+.result {
+  font-size: 1.5rem;
+}

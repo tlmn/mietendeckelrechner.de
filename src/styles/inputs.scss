@@ -1,0 +1,102 @@
+.inputFlexContainer {
+  display: flex;
+  align-items: baseline;
+  & > div:last-child {
+    padding-left: 1rem;
+  } 
+}
+.inputRow {
+    text-align: left;
+    flex: 1;
+  }
+  .isFlex-2 {
+    flex: 2 1 0;
+  }
+
+  label {
+    display: block;
+    line-height: 1;
+    margin: 0 0 0.75rem 0.5rem;
+  }
+
+  .inputRow input {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 1.4rem;
+    padding: 0.6rem;
+    background: white;
+    margin-bottom: 2rem;
+  }
+
+  .inputRow:last-child input {
+    margin-bottom: 0;
+  }
+
+  select {
+    display: block;
+    margin-bottom: 2rem !important;
+    width: 100%;
+  }
+
+  input[type="checkbox"] {
+    display: inline;
+  }
+
+  input[type="checkbox"] + label {
+    padding-left: 0.7rem;
+  }
+
+  .labelcheckmark {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .labelcheckmark input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.75rem;
+    width: 1.75rem;
+    background-color: lighten($c-yellow, 30%);
+  }
+
+  .labelcheckmark:hover input ~ .checkmark {
+    background-color: lighten($c-yellow, 10%);
+  }
+
+  .labelcheckmark input:checked ~ .checkmark {
+    background-color: $c-yellow;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .labelcheckmark input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .labelcheckmark .checkmark:after {
+    left: 0.65rem;
+    top: 0.25rem;
+    width: 0.5rem;
+    height: 1rem;
+    border: solid white;
+    border-width: 0 0.2rem 0.2rem 0;
+    transform: rotate(45deg);
+  }
