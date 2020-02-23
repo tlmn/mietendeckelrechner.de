@@ -115,12 +115,13 @@ const Layout = ({ children, location, i18nMessages }) => {
               </p>
               <h3 className="text-center">Mietabsenkungen</h3>
               <p>
-                Überhöhte Mieten von mehr als 120 % der Mietobergrenze, können
-                auf Antrag abgesenkt werden. Dabei werden je nach Lage deiner
-                Wohnung Ab- oder Zuschläge fällig. Diese Maßnahme wird 9 Monate
-                nach Inkrafttreten des Mietendeckels wirken. Mit unserem
-                Mietendeckelrechner kannst du ermitteln, wie viel du dann
-                sparst.
+                Überhöhte Mieten von mehr als 120 % der Mietobergrenze können
+                abgesenkt werden. Diese Mietobergrenze bemisst sich unter
+                anderem nach Baujahr des Hauses und Ausstattung der Wohnung.
+                Zusätzlich werden je nach Lage deiner Wohnung Ab- oder Zuschläge
+                fällig. Diese Maßnahme wird 9 Monate nach Inkrafttreten des
+                Mietendeckels greifen. Mit unserem Mietendeckelrechner kannst du
+                ermitteln, wie viel du dann sparst.
               </p>
               <p className="disclaimer">
                 Grundsätzlich gilt, dass wir als Anbieter keinerlei Gewähr für
