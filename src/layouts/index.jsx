@@ -81,20 +81,7 @@ const Layout = ({ children, location, i18nMessages }) => {
                 </h2>
               </div>
             </div>
-            <div className="calculator">
-              <div className="calculator__title">Mietendeckelrechner</div>
-              <div className="calculator__wrapper">
-                <div className="text-center">
-                  <p>
-                    Ab Dezember 2020 können in Berlin überhöhte Mieten abgesenkt
-                    werden. <br />
-                    Berechne jetzt, ob du Anspruch auf eine Mietabsenkung
-                    hättest und wie viel du monatlich sparen wirst!
-                  </p>
-                </div>
-                {children}
-              </div>
-            </div>
+            {children}
           </div>
         </div>
       </BackgroundImage>
@@ -118,9 +105,10 @@ const Layout = ({ children, location, i18nMessages }) => {
               <p>
                 Ab 23. Februar 2020 dürfen in Berlin die meisten Mieten nicht
                 mehr erhöht werden. Kosten für Modernisierungen können mit bis
-                zu 1 Euro/m
-                <sup>2</sup> auf die Mieter*innen umgelegt werden.
-                <h3 className="text-center">Wiedervermietung</h3>
+                zu 1 Euro/m² auf die Mieter*innen umgelegt werden.
+              </p>
+              <h3 className="text-center">Wiedervermietung</h3>
+              <p>
                 Bei neu abgeschlossenen Mietverträgen gelten Mietobergrenzen.
                 Diese richtet sich nach Baujahr und Ausstattung des Gebäudes und
                 deiner Wohnung.

@@ -8,4 +8,8 @@
   display: block;
   margin: 0 auto;
   max-width: 22rem;
+  color: #fff;
+  & sup {
+    color: #fff;
+  }
 }
