@@ -5,7 +5,8 @@ import convertNum, {
   getBezirk,
   getHausnummerNurNummer,
   getHausnummerZusatz,
-  getStrasseOhneLabel
+  getStrasseOhneLabel,
+  round
 } from './lib';
 import { WOHNLAGE_ZUSCHLAEGE } from './vars';
 
@@ -70,7 +71,7 @@ const getMietabsenkung = async (
 
   const nettokaltmieteSqm = nettokaltmiete / wohnflaeche;
   const wohnlageBewertung = WOHNLAGE_ZUSCHLAEGE[wohnlage];
-  const ueberhoehteMieteSqm = (tabellenmiete + wohnlageBewertung) * 1.2;
+  const ueberhoehteMieteSqm = round((tabellenmiete + wohnlageBewertung) * 1.2);
   const ueberhoehteMieteTotal = ueberhoehteMieteSqm * wohnflaeche;
   const differenzUeberhoehteMieteNKM = nettokaltmiete - ueberhoehteMieteTotal;
 

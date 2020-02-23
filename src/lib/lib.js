@@ -3,6 +3,10 @@ import streetsList from '../data/streetsBerlinDistricts.json';
 export default function convertNum(value) {
   return value.toFixed(2).replace('.', ',');
 }
+
+export function round(value) {
+  return Math.round(value * 100) / 100;
+}
 export function getBezirk(streetWithLabel) {
   return streetsList.district[streetsList.label.indexOf(streetWithLabel)];
 }
