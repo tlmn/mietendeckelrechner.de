@@ -16,7 +16,7 @@ export default ({ register, ...props }) => {
           name="baujahr"
           id="baujahr"
           ref={register}
-          style={{ maxWidth: '20rem', display: 'inline', marginLeft: '1rem' }}
+          style={{ maxWidth: '10rem', display: 'inline', marginLeft: '1rem' }}
         >
           {baujahrsklassen.map(klasse => (
             <option key={klasse}>{klasse}</option>
