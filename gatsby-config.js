@@ -11,6 +11,18 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Mietendeckelrechner`,
+        short_name: `Mietendeckelrechner`,
+        start_url: `/`,
+        background_color: `#dd8893`,
+        theme_color: `#dd8893`,
+        display: `minimal-ui`,
+        icon: `src/images/mw-icon.png`
+      }
+    },
+    {
       resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: languages.defaultLangKey,
