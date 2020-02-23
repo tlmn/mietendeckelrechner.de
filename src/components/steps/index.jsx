@@ -1,5 +1,4 @@
 import React, { cloneElement, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import { SET_FORM_DATA, SET_FORM_EXTRA_PROPS } from '../formData/actions';
 import useFormData from '../formData/useFormData';
@@ -44,22 +43,7 @@ const Steps = ({ children }) => {
     }
   });
 
-  return (
-    <>
-      <header>
-        {children.length !== step + 1 && (
-          <p>
-            <FormattedMessage
-              id="case.steps"
-              values={{ current: step + 1, total: children.length - 1 }}
-            />
-          </p>
-        )}
-      </header>
-
-      {child}
-    </>
-  );
+  return <>{child}</>;
 };
 
 export default Steps;

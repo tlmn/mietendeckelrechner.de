@@ -3,12 +3,7 @@ import { FormattedMessage } from 'react-intl';
 
 import Button from '../atoms/button';
 
-export default ({
-  isFirstStep = false,
-  isLastStep = false,
-  isResult = false,
-  previous = () => {}
-}) => (
+export default ({ isLastStep = false, isResult = false }) => (
   <footer className="steps__footer">
     {!isResult && (
       <Button type="submit">
@@ -17,16 +12,6 @@ export default ({
         ) : (
           <FormattedMessage id="case.next" />
         )}
-      </Button>
-    )}
-
-    {!isFirstStep && (
-      <Button
-        type="button"
-        className="button--is-secondary"
-        onClick={() => previous()}
-      >
-        <FormattedMessage id="case.back" />
       </Button>
     )}
   </footer>

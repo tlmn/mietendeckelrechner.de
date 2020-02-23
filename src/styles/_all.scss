@@ -5,9 +5,18 @@
 @import "base.scss";
 
 @import "button.scss";
+@import "calculator.scss";
 @import "errors.scss";
 @import "footer.scss";
 @import "inputs.scss";
 @import "steps.scss";
 @import "tooltip.scss";
 @import "typeahead.scss";
+@import "bootstrap/scss/bootstrap-grid";
+@import "bootstrap/scss/mixins/_text-truncate";
+@import "bootstrap/scss/mixins/_text-emphasis";
+@import "bootstrap/scss/mixins/_text-hide";
+@import "bootstrap/scss/mixins/_hover";
+@import "bootstrap/scss/mixins/_deprecate";
+@import "bootstrap/scss/utilities/_spacing";
+@import "bootstrap/scss/utilities/_text";

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
+import { FormattedHTMLMessage } from 'react-intl';
 
 import Checkbox from '../atoms/checkbox';
 import { baujahrsklassen } from '../../lib/vars';
@@ -9,36 +9,38 @@ export default ({ register, ...props }) => {
     <>
       <fieldset {...props}>
         <legend>
-          <FormattedMessage id="gebaeudeUndWohnung.fieldTitle" />
+          <FormattedHTMLMessage id="gebaeudeUndWohnung.fieldTitle" />
         </legend>
-
-        <select name="baujahr" id="baujahr" ref={register}>
-          <option selected>
-            <FormattedMessage id="gebaeudeUndWohnung.baujahr" />
-          </option>
+        <FormattedHTMLMessage id="gebaeudeUndWohnung.baujahr" />:
+        <select
+          name="baujahr"
+          id="baujahr"
+          ref={register}
+          style={{ maxWidth: '20rem', display: 'inline', marginLeft: '1rem' }}
+        >
           {baujahrsklassen.map(klasse => (
             <option key={klasse}>{klasse}</option>
           ))}
         </select>
-
         <Checkbox name="istMehrfamilienhaus" register={register}>
-          <FormattedMessage id="gebaeudeUndWohnung.istMehrfamilienhaus" />
+          <FormattedHTMLMessage id="gebaeudeUndWohnung.istMehrfamilienhaus" />
         </Checkbox>
-
         <Checkbox name="hatSammelheizung" register={register}>
-          <FormattedMessage id="gebaeudeUndWohnung.hatSammelheizung" />
+          <FormattedHTMLMessage id="gebaeudeUndWohnung.hatSammelheizung" />
         </Checkbox>
-
         <Checkbox name="hatBad" register={register}>
-          <FormattedMessage id="gebaeudeUndWohnung.hatBad" />
+          <FormattedHTMLMessage id="gebaeudeUndWohnung.hatBad" />
         </Checkbox>
       </fieldset>
       <fieldset {...props}>
         <legend>
           <FormattedHTMLMessage id="ausstattungsmerkmale.fieldTitle" />
         </legend>
+        <Checkbox name="istModernisierung" register={register}>
+          <FormattedHTMLMessage id="modernisierung.istModernisierungNachInkrafttreten" />
+        </Checkbox>
         <p>
-          <FormattedMessage id="ausstattungsmerkmale.intro" />
+          <FormattedHTMLMessage id="ausstattungsmerkmale.intro" />
         </p>
         <Checkbox name="hatPersonenaufzug" register={register}>
           <FormattedHTMLMessage id="ausstattungsmerkmale.hatPersonenaufzug" />
@@ -58,10 +60,6 @@ export default ({ register, ...props }) => {
 
         <Checkbox name="hatGeringenEVK" register={register}>
           <FormattedHTMLMessage id="ausstattungsmerkmale.hatGeringenEVK" />
-        </Checkbox>
-
-        <Checkbox name="istModernisierung" register={register}>
-          <FormattedMessage id="modernisierung.istModernisierungNachInkrafttreten" />
         </Checkbox>
       </fieldset>
     </>

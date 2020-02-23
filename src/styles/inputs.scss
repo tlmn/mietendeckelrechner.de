@@ -18,6 +18,12 @@
     line-height: 1;
     margin: 0 0 0.75rem 0.5rem;
   }
+  .labelInputText {
+    margin: 0;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0 0 0.4rem 0;
+  }
 
   .inputRow input {
     display: block;
@@ -70,15 +76,15 @@
     left: 0;
     height: 1.75rem;
     width: 1.75rem;
-    background-color: lighten($c-yellow, 30%);
+    background-color: lighten($c-1, 20%);
   }
 
   .labelcheckmark:hover input ~ .checkmark {
-    background-color: lighten($c-yellow, 10%);
+    background-color: lighten($c-1, 10%);
   }
 
   .labelcheckmark input:checked ~ .checkmark {
-    background-color: $c-yellow;
+    background-color: $c-1;
   }
 
   .checkmark:after {

@@ -81,6 +81,7 @@ const getMietabsenkung = async (
       differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM),
       nettokaltmieteSqm: convertNum(nettokaltmieteSqm),
       nettokaltmieteTotal: convertNum(nettokaltmiete),
+      tabellenmieteSqm: convertNum(tabellenmiete),
       ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal),
       ueberhoehteMieteSqm: convertNum(ueberhoehteMieteSqm)
     });
@@ -89,8 +90,11 @@ const getMietabsenkung = async (
   return emit('res.mietabsenkung.keineErsparnis', {
     nettokaltmieteSqm: convertNum(nettokaltmieteSqm),
     nettokaltmieteTotal: convertNum(nettokaltmiete),
+    tabellenmieteSqm: convertNum(tabellenmiete),
     ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal),
-    ueberhoehteMieteSqm: convertNum(ueberhoehteMieteSqm)
+    ueberhoehteMieteSqm: convertNum(ueberhoehteMieteSqm),
+    wohnlage,
+    wohnlageBewertung: convertNum(wohnlageBewertung)
   });
 };
 

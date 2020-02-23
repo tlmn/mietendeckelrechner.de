@@ -28,11 +28,14 @@ export default ({
       <div className="inputFlexContainer">
         <div className="inputRow isFlex-2">
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label htmlFor="adresseStrasse">Straße</label>
+          <label htmlFor="adresseStrasse" className="labelInputText">
+            Straße
+          </label>
           <Typeahead
             id="adresseStrasse"
             maxResults={5}
             name="adresseStrasse"
+            className="inputText"
             placeholder={formatMessage({
               id: 'adresse.strasse.placeholder'
             })}

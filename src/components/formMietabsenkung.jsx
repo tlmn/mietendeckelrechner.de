@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { FormattedMessage } from 'react-intl';
 import FieldsTabellenmiete from './fieldsets/fieldsTabellenmiete';
 import FieldsAdresse from './fieldsets/fieldsAdresse';
-import StepFooter from './steps/footer';
+import Button from './atoms/button';
+import mietabsenkung from '../lib/mietabsenkung';
 import useFormData from './formData/useFormData';
+import { translate } from '../lib/message';
 
-export default ({ isFirstStep, isLastStep, onSubmit, previous }) => {
+export default () => {
   const [state] = useFormData();
   const {
     register,
@@ -19,10 +22,50 @@ export default ({ isFirstStep, isLastStep, onSubmit, previous }) => {
     defaultValues: state.data
   });
 
+  const [reduction, setReduction] = useState(null);
+  const [show, setShow] = useState(false);
+
+  async function fetchReduction(data) {
+    const {
+      adresseHausnummer,
+      adresseStrasse,
+      baujahr,
+      hatBad,
+      hatEinbaukueche,
+      hatGeringenEVK,
+      hatHochwertigerBoden,
+      hatHochwertigeSanitaerausstattung,
+      hatPersonenaufzug,
+      hatSammelheizung,
+      istMehrfamilienhaus,
+      istModernisierung,
+      nettokaltmiete,
+      wohnflaeche
+    } = data;
+    setShow(true);
+    const response = await mietabsenkung(
+      adresseHausnummer,
+      adresseStrasse,
+      baujahr,
+      hatBad,
+      hatEinbaukueche,
+      hatGeringenEVK,
+      hatHochwertigerBoden,
+      hatHochwertigeSanitaerausstattung,
+      hatPersonenaufzug,
+      hatSammelheizung,
+      istMehrfamilienhaus,
+      istModernisierung,
+      nettokaltmiete,
+      wohnflaeche
+    );
+    setReduction(response);
+  }
+
   return (
     <form
       onSubmit={handleSubmit(data => {
-        onSubmit(errors, data);
+        fetchReduction(data);
       })}
     >
       <FieldsAdresse
@@ -34,11 +77,33 @@ export default ({ isFirstStep, isLastStep, onSubmit, previous }) => {
       />
       <FieldsTabellenmiete register={register} />
 
-      <StepFooter
-        isFirstStep={isFirstStep}
-        isLastStep={isLastStep}
-        previous={previous}
-      />
+      <Button type="submit">
+        <FormattedMessage id="case.showResults" />
+      </Button>
+
+      <div
+        className="result"
+        style={{ display: show === false ? 'none' : 'block' }}
+      >
+        <div className="resultWrapper">
+          <div className="resultBox">
+            {reduction ? (
+              translate(reduction)
+            ) : (
+              <p>
+                <FormattedMessage id="loading" />
+              </p>
+            )}
+            <button
+              className="button"
+              type="button"
+              onClick={() => setShow(false)}
+            >
+              Fenster schließen
+            </button>
+          </div>
+        </div>
+      </div>
     </form>
   );
 };

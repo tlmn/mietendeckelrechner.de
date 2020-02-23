@@ -21,7 +21,9 @@ export default ({
 
   return (
     <div className="inputRow">
-      <label htmlFor={name}>{children}</label>
+      <label htmlFor={name} className="labelInputText">
+        {children}
+      </label>
       {isNumeric ? (
         <NumberFormat
           suffix={unit}
@@ -32,6 +34,7 @@ export default ({
           name={name}
           onValueChange={({ floatValue: value }) => setValue(name, value)}
           required
+          className="inputText"
           {...props}
         />
       ) : (
