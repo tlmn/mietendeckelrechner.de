@@ -47,7 +47,6 @@ fieldset {
 }
 
 .wrapper {
-  padding: 0.3rem;
   margin: 0 auto;
   @include mq($from: tablet) {
     max-width: 50rem;
@@ -123,4 +122,20 @@ fieldset {
 
 sup {
   color: inherit;
+}
+
+.banner {
+  background-color: $c-1;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 700;
+  & a {
+    text-decoration: underline;
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
