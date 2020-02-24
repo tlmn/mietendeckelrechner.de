@@ -7,8 +7,10 @@ import Steps from '../components/steps';
 
 const MietabsenkungPage = ({ location }) => (
   <Layout location={location}>
-    <div className="calculator">
-      <div className="calculator__title">Mietendeckelrechner</div>
+    <div className="calculator border--radius">
+      <div className="calculator__title border--radius">
+        Mietendeckelrechner
+      </div>
       <div className="calculator__wrapper">
         <div className="text-center">
           <p>
