@@ -40,9 +40,14 @@
     background-color: $c-1;
     text-align: center;
     color: #fff;
-    font-size: 2rem;
+    @include mq($until: tablet) {
+      font-size: 1.8rem;
+    }
+    @include mq($from: tablet) {
+      font-size: 2rem;
+    }
     font-weight: 700;
     text-transform: uppercase;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.3rem;
   }
 }

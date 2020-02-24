@@ -23,7 +23,12 @@ fieldset {
   }
 
   > legend {
-    font-size: 1.8rem;
+    @include mq($until: tablet) {
+      font-size: 1.6rem;
+    }
+    @include mq($from: tablet) {
+      font-size: 1.8rem;
+    }
     font-weight: 700;
     text-transform: uppercase;
     background-color: $c-1;
