@@ -86,7 +86,7 @@ export default () => {
         style={{ display: show === false ? 'none' : 'block' }}
       >
         <div className="resultWrapper">
-          <div className="resultBox">
+          <div className="resultBox border--radius">
             {reduction ? (
               translate(reduction)
             ) : (
