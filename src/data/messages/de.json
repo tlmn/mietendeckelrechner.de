@@ -51,5 +51,5 @@
   "res.awb.istWohnheim": "Der Mietendeckel gilt leider nicht für Wohnheime.",
   "res.mietabsenkung.ersparnis": "Glückwunsch, du kannst ab Dezember 2020 deine Nettokaltmiete auf <span class='result__value'>{ueberhoehteMieteTotal}&nbsp;Euro</span> absenken. Damit kannst du monatlich <span class='result__value'>{differenzUeberhoehteMieteNKM}&nbsp;Euro</span> sparen.",
   "res.mietabsenkung.keineErsparnis": "Nooo, leider gilt deine Miete nicht als überhöht und du kannst sie nicht absenken. Die Grenze für eine überhöhte Miete liegt für deine Wohnung bei <span class='result__value'>{ueberhoehteMieteSqm}&nbsp;Euro/m<sup>2</sup></span>, also <span class='result__value'>{ueberhoehteMieteTotal}&nbsp;Euro</span> Nettokaltmiete.",
-  "res.mietabsenkung.wohnlageNichtErmittelbar": "Die Wohnlage ist nicht ermittelbar."
+  "res.mietabsenkung.wohnlageNichtErmittelbar": "Die Wohnlage für {adresseStrasse} {adresseHausnummer} ist nicht ermittelbar."
 }

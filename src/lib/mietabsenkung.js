@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import axios from 'axios';
 import getTabellenmiete from './tabellenmiete';
 import { emit } from './message';
@@ -16,9 +18,14 @@ export const getWohnlage = async (
   adresseHausnummer,
   adresseHausnummerZusatz = ''
 ) =>
-  axios(
-    `https://api.mietendeckel.jetzt/2019/residentialStatus/${adresseBezirk}/${adresseStrasse}/${adresseHausnummer}/${adresseHausnummerZusatz}`
-  );
+  axios({
+    url: `https://api.mietendeckel.jetzt/2019/residentialStatus/${adresseBezirk}/${adresseStrasse}/${adresseHausnummer}/${adresseHausnummerZusatz}`,
+    validateStatus: status => {
+      return true;
+    }
+  }).catch(error => {
+    return emit('res.mietabsenkung.wohnlageNichtErmittelbar');
+  });
 
 const getMietabsenkung = async (
   adresseHausnummer,
@@ -52,8 +59,11 @@ const getMietabsenkung = async (
     adresseHausnummerZusatz
   );
 
-  if (wohnlage === undefined) {
-    return emit('res.mietabsenkung.wohnlageNichtErmittelbar');
+  if (wohnlage === -1) {
+    return emit('res.mietabsenkung.wohnlageNichtErmittelbar', {
+      adresseStrasse,
+      adresseHausnummer
+    });
   }
 
   const tabellenmiete = getTabellenmiete(
