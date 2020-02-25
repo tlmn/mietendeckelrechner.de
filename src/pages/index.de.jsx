@@ -34,8 +34,8 @@ const MietabsenkungPage = ({ location }) => (
             <div className="calculator__wrapper">
               <div className="text-center">
                 <p>
-                  Ab Dezember 2020 können in Berlin überhöhte Mieten abgesenkt
-                  werden. <br />
+                  Ab 23. November 2020 können in Berlin überhöhte Mieten
+                  abgesenkt werden. <br />
                   Berechne jetzt, ob du Anspruch auf eine Mietabsenkung hättest
                   und wie viel du monatlich sparen wirst!
                 </p>
@@ -83,9 +83,9 @@ const MietabsenkungPage = ({ location }) => (
               abgesenkt werden. Diese Mietobergrenze bemisst sich unter anderem
               nach Baujahr des Hauses und Ausstattung der Wohnung. Zusätzlich
               werden je nach Lage deiner Wohnung Ab- oder Zuschläge fällig.
-              Diese Maßnahme wird 9 Monate nach Inkrafttreten des Mietendeckels
-              greifen. Mit unserem Mietendeckelrechner kannst du ermitteln, wie
-              viel du dann sparst.
+              Diese Maßnahme wird am 23. November 2020 in Kraft treten. Mit
+              unserem Mietendeckelrechner kannst du ermitteln, wie viel du dann
+              sparst.
             </p>
             <p className="disclaimer">
               Grundsätzlich gilt, dass wir als Anbieter keinerlei Gewähr für die
