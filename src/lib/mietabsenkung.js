@@ -23,8 +23,6 @@ export const getWohnlage = async (
     validateStatus: status => {
       return true;
     }
-  }).catch(error => {
-    return emit('res.mietabsenkung.wohnlageNichtErmittelbar');
   });
 
 const getMietabsenkung = async (
