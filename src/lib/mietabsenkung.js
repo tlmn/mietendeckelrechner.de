@@ -90,6 +90,7 @@ const getMietabsenkung = async (
     return emit('res.mietabsenkung.ersparnis', {
       adresseHausnummer,
       adresseStrasse,
+      baujahr,
       differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM),
       faktorMehrfamilienhaus: istMehrfamilienhaus === true ? 1 : 1.1,
       hatBad: hatBad === true ? 'ja' : 'nein',
@@ -110,6 +111,7 @@ const getMietabsenkung = async (
   return emit('res.mietabsenkung.keineErsparnis', {
     adresseHausnummer,
     adresseStrasse,
+    baujahr,
     differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM),
     faktorMehrfamilienhaus: istMehrfamilienhaus === true ? 1 : 1.1,
     hatBad: hatBad === true ? 'ja' : 'nein',

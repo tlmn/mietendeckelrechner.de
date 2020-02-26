@@ -143,11 +143,13 @@ sup {
 details {
   font-size: 0.8rem;
   text-align: left;
+  font-family: 'Courier New', Courier, monospace;
   & b {
     font-family: 'Courier New', Courier, monospace;
   }
   & hr {
-    border: 1px #000 solid;
+    border: 0;
+    border-bottom: 1px #000 solid;
   }
 }
 summary {
