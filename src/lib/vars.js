@@ -10,6 +10,8 @@ export const tabellenMieteInitial = [
 
 export const WOHNLAGE_ZUSCHLAEGE = [-0.28, -0.09, 0.74];
 
+export const WOHNLAGE_LABELS = ['einfach', 'mittel', 'gut'];
+
 export const baujahrsklassen = [
   'vor 1918',
   '1919 bis 1949',
