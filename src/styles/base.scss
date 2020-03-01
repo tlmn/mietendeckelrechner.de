@@ -34,8 +34,7 @@ fieldset {
     background-color: $c-1;
     padding: 0.3rem 0.5rem;
     line-height: 1;
-    margin-left: -1rem;
-    text-align: center;
+    margin: 0 auto;
     border-radius: 3px;
     & > span {
       color: white !important;
