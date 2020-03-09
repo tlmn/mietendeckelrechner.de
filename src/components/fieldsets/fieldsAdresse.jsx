@@ -33,7 +33,7 @@ export default ({
           </label>
           <Typeahead
             id="adresseStrasse"
-            maxResults={5}
+            maxResults={8}
             name="adresseStrasse"
             className="inputText"
             placeholder={formatMessage({
