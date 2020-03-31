@@ -52,7 +52,7 @@ const Layout = ({ children, location, i18nMessages }) => {
         <meta property="og:title" content="Mietendeckelrechner" />
         <meta
           property="og:site_name"
-          content="Berlin deckel die Mieten! Ermittle jetzt, ob und wie viel du mit einer Mietabsenkung sparen kannst."
+          content="Berlin deckelt die Mieten! Ermittle jetzt, ob und wie viel du mit einer Mietabsenkung sparen kannst."
         />
         <meta property="og:url" content="https://www.mietendeckelrechner.de" />
         <meta

@@ -8,7 +8,6 @@ import { translate } from '../lib/message';
 
 const ResultMietabsenkung = ({ previous }) => {
   const [reduction, setReduction] = useState(null);
-
   const [
     {
       data: {
@@ -50,7 +49,6 @@ const ResultMietabsenkung = ({ previous }) => {
         nettokaltmiete,
         wohnflaeche
       );
-
       setReduction(response);
     }
 
@@ -74,6 +72,7 @@ const ResultMietabsenkung = ({ previous }) => {
           </>
         )}
       </div>
+
       <StepFooter isResult previous={previous} />
     </>
   );

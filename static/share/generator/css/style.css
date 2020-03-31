@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0 2rem;
+    font-size: 200%;
+    display: flex;
+    background: url(bg-mietendeckel.jpg);
+    background-size: cover;
+    text-align: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    align-items: center;
+    height: 100vh;
+}
+
+.tagline {
+    color: #ddf7ff;
+    background: rgba(68,211,255,.8);
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.result {
+    display: inline;
+    background-color: #e66284;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    line-height: 1.6;
+    font-size: 150%;
+    white-space: pre-wrap;
+}
+
+em {
+    font-style: normal;
+    color: #ffca00;
+    font-weight: 700;
+}

@@ -1,4 +1,4 @@
-.button {
+.button, .buttonShare {
   background: $c-1;
   border: none;
   border-radius: 0.25rem;
@@ -35,4 +35,17 @@
       color: $c-1;
     }
   }
+}
+
+.buttonShare {
+  display: inline-block;
+  margin: 0 0.5rem !important;
+}
+
+.svg {
+  fill: #fff;
+}
+
+.share {
+  margin-bottom: 1rem;
 }

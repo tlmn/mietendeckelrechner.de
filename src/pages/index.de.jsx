@@ -10,12 +10,12 @@ import Footer from '../components/atoms/footer';
 const MietabsenkungPage = ({ location }) => (
   <Layout location={location}>
     <BackgroundImage>
-      <div className="banner">
+      {/* <div className="banner">
         Mietendeckelrechner auf deiner Seite? Schreib an{' '}
         <a href="mailto:info@mietendeckelrechner.de">
           info@mietendeckelrechner.de
         </a>
-      </div>
+      </div> */}
       <div className="wrapper">
         <div className="container">
           <div className="row text-center">

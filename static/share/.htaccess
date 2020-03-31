@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule ^og-image-(.*).jpg$ render.php?saving=$1
+RewriteRule ^([0-9]+)$ /share/sharedPage.php?saving=$1
