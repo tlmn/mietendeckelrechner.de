@@ -1,12 +1,13 @@
 import streetsList from '../data/streetsBerlinDistricts.json';
 
-export default function convertNum(value) {
-  return value.toFixed(2).replace('.', ',');
+export default function convertNum(value, decimalPlace) {
+  return value.toFixed(decimalPlace).replace('.', ',');
 }
 
-export function round(value) {
-  return Math.round(value * 100) / 100;
+export function round3(value) {
+  return Math.round(value * 1000) / 1000;
 }
+
 export function getBezirk(streetWithLabel) {
   return streetsList.district[streetsList.label.indexOf(streetWithLabel)];
 }

@@ -8,7 +8,7 @@ import convertNum, {
   getHausnummerNurNummer,
   getHausnummerZusatz,
   getStrasseOhneLabel,
-  round
+  round3
 } from './lib';
 import { WOHNLAGE_ZUSCHLAEGE, WOHNLAGE_LABELS } from './vars';
 
@@ -80,7 +80,7 @@ const getMietabsenkung = async (
   const nettokaltmieteSqm = nettokaltmiete / wohnflaeche;
   const wohnlageBewertung = WOHNLAGE_ZUSCHLAEGE[wohnlage];
   const mietobergrenzeSqm = tabellenmiete + wohnlageBewertung;
-  const ueberhoehteMieteSqm = round(mietobergrenzeSqm * 1.2);
+  const ueberhoehteMieteSqm = round3(mietobergrenzeSqm * 1.2);
   const ueberhoehteMieteTotal = ueberhoehteMieteSqm * wohnflaeche;
   const differenzUeberhoehteMieteNKM = nettokaltmiete - ueberhoehteMieteTotal;
 
@@ -91,20 +91,20 @@ const getMietabsenkung = async (
       adresseHausnummer,
       adresseStrasse,
       baujahr,
-      differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM),
+      differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM, 2),
       faktorMehrfamilienhaus: istMehrfamilienhaus === true ? 1 : 1.1,
       hatBad: hatBad === true ? 'ja' : 'nein',
       hatSammelheizung: hatSammelheizung === true ? 'ja' : 'nein',
-      mietobergrenzeSqm: convertNum(mietobergrenzeSqm),
+      mietobergrenzeSqm: convertNum(mietobergrenzeSqm, 2),
       modernisierungsUmlage: istModernisierung === true ? 1 : 0,
-      nettokaltmieteSqm: convertNum(nettokaltmieteSqm),
-      nettokaltmieteTotal: convertNum(nettokaltmiete),
-      tabellenmieteSqm: convertNum(tabellenmiete),
-      ueberhoehteMieteSqm: convertNum(ueberhoehteMieteSqm),
-      ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal),
-      wohnflaeche: convertNum(wohnflaeche),
+      nettokaltmieteSqm: convertNum(nettokaltmieteSqm, 2),
+      nettokaltmieteTotal: convertNum(nettokaltmiete, 2),
+      tabellenmieteSqm: convertNum(tabellenmiete, 2),
+      ueberhoehteMieteSqm: convertNum(ueberhoehteMieteSqm, 3),
+      ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal, 2),
+      wohnflaeche: convertNum(wohnflaeche, 2),
       wohnlage: WOHNLAGE_LABELS[wohnlage],
-      wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage])
+      wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage], 2)
     });
   }
 
@@ -112,20 +112,20 @@ const getMietabsenkung = async (
     adresseHausnummer,
     adresseStrasse,
     baujahr,
-    differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM),
+    differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM, 2),
     faktorMehrfamilienhaus: istMehrfamilienhaus === true ? 1 : 1.1,
     hatBad: hatBad === true ? 'ja' : 'nein',
     hatSammelheizung: hatSammelheizung === true ? 'ja' : 'nein',
-    mietobergrenzeSqm: convertNum(mietobergrenzeSqm),
+    mietobergrenzeSqm: convertNum(mietobergrenzeSqm, 2),
     modernisierungsUmlage: istModernisierung === true ? 1 : 0,
-    nettokaltmieteSqm: convertNum(nettokaltmieteSqm),
-    nettokaltmieteTotal: convertNum(nettokaltmiete),
-    tabellenmieteSqm: convertNum(tabellenmiete),
-    ueberhoehteMieteSqm: convertNum(ueberhoehteMieteSqm),
-    ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal),
-    wohnflaeche: convertNum(wohnflaeche),
+    nettokaltmieteSqm: convertNum(nettokaltmieteSqm, 2),
+    nettokaltmieteTotal: convertNum(nettokaltmiete, 2),
+    tabellenmieteSqm: convertNum(tabellenmiete, 2),
+    ueberhoehteMieteSqm: convertNum(ueberhoehteMieteSqm, 3),
+    ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal, 2),
+    wohnflaeche: convertNum(wohnflaeche, 2),
     wohnlage: WOHNLAGE_LABELS[wohnlage],
-    wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage])
+    wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage], 2)
   });
 };
 
