@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { Typeahead } from 'react-bootstrap-typeahead';
 import { FormattedHTMLMessage, useIntl } from 'react-intl';
+import React, { useEffect } from 'react';
 
+import { Typeahead } from 'react-bootstrap-typeahead';
 import ErrorMessage from '../errorMessage';
-import streetsList from '../../data/streetsBerlinDistricts.json';
 import InputText from '../atoms/inputText';
+import streetsList from '../../data/streetsBerlinDistricts.json';
 
 export default ({
   register,
@@ -33,7 +33,7 @@ export default ({
           </label>
           <Typeahead
             id="adresseStrasse"
-            maxResults={8}
+            maxResults={30}
             name="adresseStrasse"
             className="inputText"
             placeholder={formatMessage({
