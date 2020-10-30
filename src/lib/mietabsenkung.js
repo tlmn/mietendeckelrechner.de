@@ -1,4 +1,8 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-return-await */
+/* eslint-disable import/no-extraneous-dependencies */
+
+import 'isomorphic-fetch';
 
 import { WOHNLAGE_LABELS, WOHNLAGE_ZUSCHLAEGE } from './vars';
 import convertNum, {
@@ -25,7 +29,7 @@ export const getWohnlage = async (
     obj_houseNumberSupplement: adresseHausnummerZusatz
   };
 
-  await fetch(
+  return await fetch(
     `https://mdr-api-serverless.vercel.app/api?${Object.keys(queryString)
       .map(key => `${key}=${queryString[key]}`)
       .join('&')}`
@@ -34,8 +38,10 @@ export const getWohnlage = async (
       return res.json();
     })
     .then(
-      res => {
-        return res.response.objectstatus;
+      response => {
+        return response.response !== undefined
+          ? response.response.objectstatus
+          : -1;
       },
       error => {
         return error;
