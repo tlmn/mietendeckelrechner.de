@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 
 import { FormattedMessage } from 'react-intl';
-import FieldsTabellenmiete from './fieldsets/fieldsTabellenmiete';
-import FieldsAdresse from './fieldsets/fieldsAdresse';
+import { useForm } from 'react-hook-form';
 import Button from './atoms/button';
+import FieldsAdresse from './fieldsets/fieldsAdresse';
+import FieldsTabellenmiete from './fieldsets/fieldsTabellenmiete';
 import mietabsenkung from '../lib/mietabsenkung';
-import useFormData from './formData/useFormData';
 /* import FacebookIcon from "../assets/icons/facebook";
 import TwitterIcon from "../assets/icons/twitter"; */
 import { translate } from '../lib/message';
+import useFormData from './formData/useFormData';
 
 export default () => {
   const [state] = useFormData();
@@ -63,7 +63,6 @@ export default () => {
       nettokaltmiete,
       wohnflaeche
     );
-    console.log(response);
     setReduction(response);
   }
 

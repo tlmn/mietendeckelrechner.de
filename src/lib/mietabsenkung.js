@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-return-await */
+/* eslint-disable import/no-extraneous-dependencies */
 
-import axios from 'axios';
-import getTabellenmiete from './tabellenmiete';
-import { emit } from './message';
+import 'isomorphic-fetch';
+
+import { WOHNLAGE_LABELS, WOHNLAGE_ZUSCHLAEGE } from './vars';
 import convertNum, {
   getBezirk,
   getHausnummerNurNummer,
@@ -10,20 +12,42 @@ import convertNum, {
   getStrasseOhneLabel,
   round3
 } from './lib';
-import { WOHNLAGE_ZUSCHLAEGE, WOHNLAGE_LABELS } from './vars';
+
+import { emit } from './message';
+import getTabellenmiete from './tabellenmiete';
 
 export const getWohnlage = async (
   adresseStrasse,
   adresseBezirk,
   adresseHausnummer,
-  adresseHausnummerZusatz = ''
-) =>
-  axios({
-    url: `https://api.mietendeckel.jetzt/2019/residentialStatus/${adresseBezirk}/${adresseStrasse}/${adresseHausnummer}/${adresseHausnummerZusatz}`,
-    validateStatus: status => {
-      return true;
-    }
-  });
+  adresseHausnummerZusatz = ' '
+) => {
+  const queryString = {
+    obj_district: adresseBezirk,
+    obj_street: adresseStrasse,
+    obj_houseNumber: adresseHausnummer,
+    obj_houseNumberSupplement: adresseHausnummerZusatz
+  };
+
+  return await fetch(
+    `https://mdr-api-serverless.vercel.app/api?${Object.keys(queryString)
+      .map(key => `${key}=${queryString[key]}`)
+      .join('&')}`
+  )
+    .then(res => {
+      return res.json();
+    })
+    .then(
+      response => {
+        return response.response !== undefined
+          ? response.response.objectstatus
+          : -1;
+      },
+      error => {
+        return error;
+      }
+    );
+};
 
 const getMietabsenkung = async (
   adresseHausnummer,
@@ -46,11 +70,7 @@ const getMietabsenkung = async (
   const adresseHausnummerZusatz = getHausnummerZusatz(adresseHausnummer);
   const adresseHausnummerNurNummer = getHausnummerNurNummer(adresseHausnummer);
 
-  const {
-    data: {
-      resData: { residentialStatus: wohnlage }
-    }
-  } = await getWohnlage(
+  const wohnlage = await getWohnlage(
     adresseStrasseOhneLabel,
     adresseBezirk,
     adresseHausnummerNurNummer,
