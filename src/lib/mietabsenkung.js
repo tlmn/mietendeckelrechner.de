@@ -30,7 +30,7 @@ export const getWohnlage = async (
   };
 
   return await fetch(
-    `https://mdr-api-serverless.vercel.app/api?${Object.keys(queryString)
+    `https://api.mietendeckelcheck.de/api?${Object.keys(queryString)
       .map(key => `${key}=${queryString[key]}`)
       .join('&')}`
   )
