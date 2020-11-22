@@ -37,8 +37,8 @@ const MietabsenkungPage = ({ location }) => (
                 <p>
                   Seit 23. November 2020 können in Berlin überhöhte Mieten
                   abgesenkt werden. <br />
-                  Berechne jetzt, ob du Anspruch auf eine Mietabsenkung hättest
-                  und wie viel du monatlich sparen wirst!
+                  Berechne jetzt, ob du Anspruch auf eine Mietabsenkung hast
+                  und wie viel du monatlich sparst!
                 </p>
               </div>
               <Steps>
