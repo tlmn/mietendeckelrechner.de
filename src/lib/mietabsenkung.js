@@ -2,48 +2,48 @@
 /* eslint-disable no-return-await */
 /* eslint-disable import/no-extraneous-dependencies */
 
-import 'isomorphic-fetch';
+import "isomorphic-fetch";
 
-import { WOHNLAGE_LABELS, WOHNLAGE_ZUSCHLAEGE } from './vars';
+import { WOHNLAGE_LABELS, WOHNLAGE_ZUSCHLAEGE } from "./vars";
 import convertNum, {
   getBezirk,
   getHausnummerNurNummer,
   getHausnummerZusatz,
   getStrasseOhneLabel,
-  round3
-} from './lib';
+  round3,
+} from "./lib";
 
-import { emit } from './message';
-import getTabellenmiete from './tabellenmiete';
+import { emit } from "./message";
+import getTabellenmiete from "./tabellenmiete";
 
 export const getWohnlage = async (
   adresseStrasse,
   adresseBezirk,
   adresseHausnummer,
-  adresseHausnummerZusatz = ' '
+  adresseHausnummerZusatz = " ",
 ) => {
   const queryString = {
-    obj_district: adresseBezirk,
-    obj_street: adresseStrasse,
-    obj_houseNumber: adresseHausnummer,
-    obj_houseNumberSupplement: adresseHausnummerZusatz
+    adresseBezirk,
+    adresseStrasse,
+    adresseHausnummer,
+    adresseHausnummerZusatz,
   };
 
   return await fetch(
-    `https://api.mietendeckelcheck.de/api?${Object.keys(queryString)
-      .map(key => `${key}=${queryString[key]}`)
-      .join('&')}`
+    `https://mdr-api-serverless-2.vercel.app/api/objectStatus?${Object.keys(queryString)
+      .map((key) => `${key}=${queryString[key]}`)
+      .join("&")}`
   )
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
     .then(
-      response => {
+      (response) => {
         return response.response !== undefined
           ? response.response.objectstatus
           : -1;
       },
-      error => {
+      (error) => {
         return error;
       }
     );
@@ -70,6 +70,9 @@ const getMietabsenkung = async (
   const adresseHausnummerZusatz = getHausnummerZusatz(adresseHausnummer);
   const adresseHausnummerNurNummer = getHausnummerNurNummer(adresseHausnummer);
 
+  const requestOrigin =
+    typeof window !== "undefined" ? window.location.pathname : "";
+
   const wohnlage = await getWohnlage(
     adresseStrasseOhneLabel,
     adresseBezirk,
@@ -78,9 +81,9 @@ const getMietabsenkung = async (
   );
 
   if (wohnlage === -1) {
-    return emit('res.mietabsenkung.wohnlageNichtErmittelbar', {
+    return emit("res.mietabsenkung.wohnlageNichtErmittelbar", {
       adresseStrasse,
-      adresseHausnummer
+      adresseHausnummer,
     });
   }
 
@@ -107,14 +110,14 @@ const getMietabsenkung = async (
   const istUeberhoehteMiete = nettokaltmieteSqm > ueberhoehteMieteSqm;
 
   if (istUeberhoehteMiete) {
-    return emit('res.mietabsenkung.ersparnis', {
+    return emit("res.mietabsenkung.ersparnis", {
       adresseHausnummer,
       adresseStrasse,
       baujahr,
       differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM, 2),
       faktorMehrfamilienhaus: istMehrfamilienhaus === true ? 1 : 1.1,
-      hatBad: hatBad === true ? 'ja' : 'nein',
-      hatSammelheizung: hatSammelheizung === true ? 'ja' : 'nein',
+      hatBad: hatBad === true ? "ja" : "nein",
+      hatSammelheizung: hatSammelheizung === true ? "ja" : "nein",
       mietobergrenzeSqm: convertNum(mietobergrenzeSqm, 2),
       modernisierungsUmlage: istModernisierung === true ? 1 : 0,
       nettokaltmieteSqm: convertNum(nettokaltmieteSqm, 2),
@@ -124,18 +127,18 @@ const getMietabsenkung = async (
       ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal, 2),
       wohnflaeche: convertNum(wohnflaeche, 2),
       wohnlage: WOHNLAGE_LABELS[wohnlage],
-      wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage], 2)
+      wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage], 2),
     });
   }
 
-  return emit('res.mietabsenkung.keineErsparnis', {
+  return emit("res.mietabsenkung.keineErsparnis", {
     adresseHausnummer,
     adresseStrasse,
     baujahr,
     differenzUeberhoehteMieteNKM: convertNum(differenzUeberhoehteMieteNKM, 2),
     faktorMehrfamilienhaus: istMehrfamilienhaus === true ? 1 : 1.1,
-    hatBad: hatBad === true ? 'ja' : 'nein',
-    hatSammelheizung: hatSammelheizung === true ? 'ja' : 'nein',
+    hatBad: hatBad === true ? "ja" : "nein",
+    hatSammelheizung: hatSammelheizung === true ? "ja" : "nein",
     mietobergrenzeSqm: convertNum(mietobergrenzeSqm, 2),
     modernisierungsUmlage: istModernisierung === true ? 1 : 0,
     nettokaltmieteSqm: convertNum(nettokaltmieteSqm, 2),
@@ -145,7 +148,7 @@ const getMietabsenkung = async (
     ueberhoehteMieteTotal: convertNum(ueberhoehteMieteTotal, 2),
     wohnflaeche: convertNum(wohnflaeche, 2),
     wohnlage: WOHNLAGE_LABELS[wohnlage],
-    wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage], 2)
+    wohnlageBewertung: convertNum(WOHNLAGE_ZUSCHLAEGE[wohnlage], 2),
   });
 };
 
