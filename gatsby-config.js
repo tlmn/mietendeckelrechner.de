@@ -1,15 +1,15 @@
-const languages = require('./src/data/languages');
+const languages = require("./src/data/languages");
 
 const path = require(`path`);
 
 module.exports = {
   siteMetadata: {
-    languages
+    languages,
   },
 
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -19,37 +19,39 @@ module.exports = {
         background_color: `#dd8893`,
         theme_color: `#dd8893`,
         display: `minimal-ui`,
-        icon: `src/images/mw-icon.png`
-      }
+        icon: `src/images/mw-icon.png`,
+      },
     },
     {
-      resolve: 'gatsby-plugin-i18n',
+      resolve: "gatsby-plugin-i18n",
       options: {
         langKeyDefault: languages.defaultLangKey,
-        langKeyForNull: 'any',
+        langKeyForNull: "any",
         useLangKeyLayout: true,
-        prefixDefault: false
-      }
+        prefixDefault: false,
+      },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          {
-            family: `Source Sans Pro`,
-            variants: [`400`, `700`]
-          }
-        ]
-      }
+        fonts: {
+          google: [
+            {
+              family: "Source Sans Pro",
+              variants: ["400", "700"],
+            },
+          ],
+        },
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: path.join(__dirname, `src`, `images`)
-      }
+        path: path.join(__dirname, `src`, `images`),
+      },
     },
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`
-  ]
+    `gatsby-transformer-sharp`,
+  ],
 };
