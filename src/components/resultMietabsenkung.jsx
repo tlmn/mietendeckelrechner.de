@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import { FormattedMessage } from "react-intl";
-import StepFooter from "./steps/footer";
-import { logResult } from "../lib/logResult";
-import mietabsenkung from "../lib/mietabsenkung";
-import { translate } from "../lib/message";
-import useFormData from "./formData/useFormData";
+import { FormattedMessage } from 'react-intl';
+import StepFooter from './steps/footer';
+import { logResult } from '../lib/logResult';
+import mietabsenkung from '../lib/mietabsenkung';
+import { translate } from '../lib/message';
+import useFormData from './formData/useFormData';
 
 const ResultMietabsenkung = ({ previous }) => {
   const [reduction, setReduction] = useState(null);
@@ -25,11 +25,11 @@ const ResultMietabsenkung = ({ previous }) => {
         adresseStrasse,
         adresseHausnummer,
         wohnflaeche,
-        nettokaltmiete,
+        nettokaltmiete
       },
 
-      extraProps: { skip },
-    },
+      extraProps: { skip }
+    }
   ] = useFormData();
 
   useEffect(() => {
@@ -47,8 +47,8 @@ const ResultMietabsenkung = ({ previous }) => {
         hatSammelheizung,
         istMehrfamilienhaus,
         istModernisierung,
-        parseFloat(nettokaltmiete.replace(",", ".")),
-        parseFloat(wohnflaeche.replace(",", "."))
+        parseFloat(nettokaltmiete.replace(',', '.')),
+        parseFloat(wohnflaeche.replace(',', '.'))
       );
       setReduction(response);
       logResult(response.props);

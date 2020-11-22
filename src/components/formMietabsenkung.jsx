@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Button from "./atoms/button";
-import FieldsAdresse from "./fieldsets/fieldsAdresse";
-import FieldsTabellenmiete from "./fieldsets/fieldsTabellenmiete";
-import { FormattedMessage } from "react-intl";
-import logResult from "../lib/logResult";
-import mietabsenkung from "../lib/mietabsenkung";
+import { FormattedMessage } from 'react-intl';
+import { useForm } from 'react-hook-form';
+import Button from './atoms/button';
+import FieldsAdresse from './fieldsets/fieldsAdresse';
+import FieldsTabellenmiete from './fieldsets/fieldsTabellenmiete';
+import logResult from '../lib/logResult';
+import mietabsenkung from '../lib/mietabsenkung';
 /* import FacebookIcon from "../assets/icons/facebook";
 import TwitterIcon from "../assets/icons/twitter"; */
-import { translate } from "../lib/message";
-import { useForm } from "react-hook-form";
-import useFormData from "./formData/useFormData";
+import { translate } from '../lib/message';
+import useFormData from './formData/useFormData';
 
 export default () => {
   const [state] = useFormData();
@@ -20,9 +20,9 @@ export default () => {
     errors,
     setError,
     setValue,
-    clearError,
+    clearError
   } = useForm({
-    defaultValues: state.data,
+    defaultValues: state.data
   });
 
   const [reduction, setReduction] = useState(null);
@@ -43,7 +43,7 @@ export default () => {
       istMehrfamilienhaus,
       istModernisierung,
       nettokaltmiete,
-      wohnflaeche,
+      wohnflaeche
     } = data;
 
     setShow(true);
@@ -70,7 +70,7 @@ export default () => {
 
   return (
     <form
-      onSubmit={handleSubmit((data) => {
+      onSubmit={handleSubmit(data => {
         fetchReduction(data);
       })}
     >
@@ -89,7 +89,7 @@ export default () => {
 
       <div
         className="result"
-        style={{ display: show === false ? "none" : "block" }}
+        style={{ display: show === false ? 'none' : 'block' }}
       >
         <div className="resultWrapper">
           <div className="resultBox border--radius">
