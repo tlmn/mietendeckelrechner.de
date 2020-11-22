@@ -1,17 +1,16 @@
-import React from 'react';
-
-import Mietabsenkung from '../components/formMietabsenkung';
-import Layout from '../layouts/de';
-import Result from '../components/resultMietabsenkung';
-import Steps from '../components/steps';
-import BackgroundImage from '../components/backgroundImage';
-import Footer from '../components/atoms/footer';
+import BackgroundImage from "../components/backgroundImage";
+import Footer from "../components/atoms/footer";
+import Layout from "../layouts/de";
+import Mietabsenkung from "../components/formMietabsenkung";
+import React from "react";
+import Result from "../components/resultMietabsenkung";
+import Steps from "../components/steps";
 
 const MietabsenkungPage = ({ location }) => (
   <Layout location={location}>
     <BackgroundImage>
       <div className="banner">
-        Mietendeckelrechner auf deiner Seite? Schreib an{' '}
+        Mietendeckelrechner auf deiner Seite? Schreib an{" "}
         <a href="mailto:info@mietendeckelrechner.de">
           info@mietendeckelrechner.de
         </a>
@@ -36,7 +35,7 @@ const MietabsenkungPage = ({ location }) => (
             <div className="calculator__wrapper">
               <div className="text-center">
                 <p>
-                  Ab 23. November 2020 können in Berlin überhöhte Mieten
+                  Seit 23. November 2020 können in Berlin überhöhte Mieten
                   abgesenkt werden. <br />
                   Berechne jetzt, ob du Anspruch auf eine Mietabsenkung hättest
                   und wie viel du monatlich sparen wirst!
@@ -85,9 +84,8 @@ const MietabsenkungPage = ({ location }) => (
               abgesenkt werden. Diese Mietobergrenze bemisst sich unter anderem
               nach Baujahr des Hauses und Ausstattung der Wohnung. Zusätzlich
               werden je nach Lage deiner Wohnung Ab- oder Zuschläge fällig.
-              Diese Maßnahme wird am 23. November 2020 in Kraft treten. Mit
-              unserem Mietendeckelrechner kannst du ermitteln, wie viel du dann
-              sparst.
+              Diese Maßnahme trat am 23. November 2020 in Kraft. Mit unserem
+              Mietendeckelrechner kannst du ermitteln, wie viel du sparst.
             </p>
             <p className="disclaimer">
               Grundsätzlich gilt, dass wir als Anbieter keinerlei Gewähr für die
