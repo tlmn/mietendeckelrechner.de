@@ -57,7 +57,7 @@ const MietabsenkungPage = ({ location }) => (
             <h2 className="text-center">Was ist der Mietendeckel?</h2>
             <p>
               In Berlin wütet der Mietenwahnsinn: Mietpreise steigen in
-              astronomische Höhen und Mieter*innen werden aus ihren Kiezen
+              astronomische Höhen und Mieter:innen werden aus ihren Kiezen
               verdrängt. Die rot-rot-grüne Landesregierung will dieser
               Entwicklung mit einem Mietendeckel Einhalt gebieten. Der
               Mietendeckel trat am 23. Februar 2020 in Kraft und gilt bis 2025.
@@ -69,8 +69,8 @@ const MietabsenkungPage = ({ location }) => (
             <h3 className="text-center">Mietenstopp</h3>
             <p>
               Ab 23. Februar 2020 dürfen in Berlin die meisten Mieten nicht mehr
-              erhöht werden. Kosten für Modernisierungen können mit bis zu 1
-              Euro/m² auf die Mieter*innen umgelegt werden.
+              erhöht werden. Kosten für Modernisierungen können mit bis zu
+              1&nbsp;Euro/m² auf die Mieter*innen umgelegt werden.
             </p>
             <h3 className="text-center">Wiedervermietung</h3>
             <p>
@@ -80,7 +80,7 @@ const MietabsenkungPage = ({ location }) => (
             </p>
             <h3 className="text-center">Mietabsenkungen</h3>
             <p>
-              Überhöhte Mieten von mehr als 120 % der Mietobergrenze können
+              Überhöhte Mieten von mehr als 120&nbsp;% der Mietobergrenze können
               abgesenkt werden. Diese Mietobergrenze bemisst sich unter anderem
               nach Baujahr des Hauses und Ausstattung der Wohnung. Zusätzlich
               werden je nach Lage deiner Wohnung Ab- oder Zuschläge fällig.
